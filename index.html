@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zainab Almusailem | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="#top">Zainab Almusailem</a>
+        <nav class="main-nav">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button class="theme-toggle" id="theme-toggle" type="button">
+          Dark mode
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero section container" style="--delay: 0.05s">
+        <div class="hero-text">
+          <p class="eyebrow">Personal Portfolio</p>
+          <h1>Hi, I’m Zainab Almusailem.</h1>
+          <p class="tagline">Software engineer.</p>
+          <p class="intro" id="greeting">Welcome!</p>
+          <div class="hero-actions">
+            <a class="btn" href="#projects">View projects</a>
+            <a class="btn ghost" href="#contact">Get in touch</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <img
+            src="assets/images/profile-placeholder.svg"
+            alt="Illustrated profile placeholder"
+          />
+          <div>
+            <p class="card-title">Front-End Focus</p>
+            <p class="card-subtitle">HTML, CSS, JavaScript, Responsive UI</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section" style="--delay: 0.15s">
+        <div class="container">
+          <h2>About Me</h2>
+          <p>
+            I’m a senior software engineering student with experience in software
+            engineering. I enjoy turning ideas into clear, usable interfaces and
+            learning new tools through hands-on practice. Right now, I’m focused on
+            responsive layouts and accessible design.
+          </p>
+          <p class="about-tagline">Tagline: Thoughtful design. Reliable code.</p>
+        </div>
+      </section>
+
+      <section id="projects" class="section" style="--delay: 0.25s">
+        <div class="container">
+          <div class="section-title">
+            <h2>Projects</h2>
+            <p>Two recent builds that show my approach to clean UI and structure.</p>
+          </div>
+          <div class="projects-grid">
+            <article class="card">
+              <img
+                src="assets/images/project-1.svg"
+                alt="Project one placeholder preview"
+              />
+              <div class="card-body">
+                <h3>Campus Service Tracker</h3>
+                <p>
+                  A concept web app that helps students report facility issues and
+                  track update status with a clean, mobile-friendly layout.
+                </p>
+              </div>
+            </article>
+            <article class="card">
+              <img
+                src="assets/images/project-2.svg"
+                alt="Project two placeholder preview"
+              />
+              <div class="card-body">
+                <h3>Smart Study Planner</h3>
+                <p>
+                  A productivity dashboard mockup that organizes weekly goals,
+                  priorities, and deadlines in a simple visual flow.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="section" style="--delay: 0.35s">
+        <div class="container">
+          <div class="section-title">
+            <h2>Skills & Tools</h2>
+            <p>Core technologies I’m practicing right now.</p>
+          </div>
+          <div class="chip-row">
+            <span class="chip">HTML5</span>
+            <span class="chip">CSS Grid & Flexbox</span>
+            <span class="chip">JavaScript Basics</span>
+            <span class="chip">Responsive Design</span>
+            <span class="chip">Git & GitHub</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section" style="--delay: 0.45s">
+        <div class="container contact-grid">
+          <div>
+            <h2>Contact</h2>
+            <p>
+              Want to collaborate or share feedback? Send a quick message and I’ll
+              reply as soon as possible.
+            </p>
+            <ul class="contact-list">
+              <li>Email: s202251360@kfupm.edu.sa</li>
+              <li>Location: KSA, Dhahran</li>
+            </ul>
+          </div>
+          <form id="contact-form" class="contact-form">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" required />
+
+            <label for="email">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="you@example.com"
+              required
+            />
+
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              placeholder="Write a short message..."
+              required
+            ></textarea>
+
+            <button class="btn" type="submit">Send message</button>
+            <p id="form-status" class="form-status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© 2026 Zainab Almusailem. Built for Assignment 1.</p>
+        <div class="footer-links">
+          <a href="#top">Back to top</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/script.js" defer></script>
+  </body>
+</html>

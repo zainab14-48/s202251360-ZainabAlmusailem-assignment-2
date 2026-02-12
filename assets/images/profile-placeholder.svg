@@ -1,0 +1,19 @@
+<svg width="360" height="360" viewBox="0 0 360 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="paint0" x1="0" y1="0" x2="360" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F2C6B5" />
+      <stop offset="1" stop-color="#B8482F" />
+    </linearGradient>
+  </defs>
+  <rect width="360" height="360" rx="40" fill="#F8EFE7" />
+  <circle cx="180" cy="140" r="70" fill="url(#paint0)" />
+  <rect x="90" y="220" width="180" height="80" rx="40" fill="#E4C1A9" />
+  <circle cx="150" cy="130" r="8" fill="#2E1F1C" />
+  <circle cx="210" cy="130" r="8" fill="#2E1F1C" />
+  <path
+    d="M150 165C160 176 200 176 210 165"
+    stroke="#2E1F1C"
+    stroke-width="6"
+    stroke-linecap="round"
+  />
+</svg>
