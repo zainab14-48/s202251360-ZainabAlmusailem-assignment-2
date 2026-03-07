@@ -71,8 +71,36 @@
             <h2>Projects</h2>
             <p>Two recent builds that show my approach to clean UI and structure.</p>
           </div>
+          <div class="project-controls">
+            <div class="filter-group" role="group" aria-label="Filter projects">
+              <button class="filter-btn active" type="button" data-filter="all">
+                All
+              </button>
+              <button class="filter-btn" type="button" data-filter="web">
+                Web Apps
+              </button>
+              <button class="filter-btn" type="button" data-filter="ui">
+                UI Concepts
+              </button>
+            </div>
+            <div class="search-group">
+              <label class="sr-only" for="project-search">Search projects</label>
+              <input
+                id="project-search"
+                type="search"
+                placeholder="Search projects..."
+                autocomplete="off"
+              />
+            </div>
+          </div>
+          <p id="project-status" class="project-status" aria-live="polite"></p>
           <div class="projects-grid">
-            <article class="card">
+            <article
+              class="card project-card"
+              data-category="web"
+              data-title="Campus Service Tracker"
+              data-tags="web app tracker campus maintenance student support"
+            >
               <img
                 src="assets/images/project-1.svg"
                 alt="Project one placeholder preview"
@@ -85,7 +113,12 @@
                 </p>
               </div>
             </article>
-            <article class="card">
+            <article
+              class="card project-card"
+              data-category="ui"
+              data-title="Smart Study Planner"
+              data-tags="ui concept dashboard planner productivity"
+            >
               <img
                 src="assets/images/project-2.svg"
                 alt="Project two placeholder preview"
@@ -133,7 +166,15 @@
           </div>
           <form id="contact-form" class="contact-form">
             <label for="name">Name</label>
-            <input id="name" name="name" type="text" placeholder="Your name" required />
+            <input
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Your name"
+              aria-describedby="name-error"
+              required
+            />
+            <span id="name-error" class="field-error" aria-live="polite"></span>
 
             <label for="email">Email</label>
             <input
@@ -141,8 +182,10 @@
               name="email"
               type="email"
               placeholder="you@example.com"
+              aria-describedby="email-error"
               required
             />
+            <span id="email-error" class="field-error" aria-live="polite"></span>
 
             <label for="message">Message</label>
             <textarea
@@ -150,8 +193,10 @@
               name="message"
               rows="5"
               placeholder="Write a short message..."
+              aria-describedby="message-error"
               required
             ></textarea>
+            <span id="message-error" class="field-error" aria-live="polite"></span>
 
             <button class="btn" type="submit">Send message</button>
             <p id="form-status" class="form-status" aria-live="polite"></p>

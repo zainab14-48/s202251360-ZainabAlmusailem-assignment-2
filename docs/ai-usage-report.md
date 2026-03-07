@@ -2,27 +2,27 @@
 
 ## 1. Tools Used & Use Cases
 - ChatGPT (OpenAI Codex environment):
-  - Drafted the initial HTML structure for the portfolio layout.
-  - Suggested CSS organization using variables for light/dark themes.
-  - Outlined a simple JavaScript interaction for greeting, theme toggle, and form feedback.
+  - Planned interactive features for Assignment 2 (project filtering, search, and form validation).
+  - Suggested CSS refinements for hover effects and feedback styling.
+  - Helped outline and polish documentation updates.
 
 ## 2. Benefits & Challenges
 **Benefits**
-- Saved time by quickly generating a clean starting structure.
-- Helped confirm responsive layout ideas (CSS Grid/Flexbox).
-- Offered wording suggestions for documentation.
+- Quickly generated ideas for dynamic behavior and user feedback.
+- Saved time while organizing JavaScript logic for filtering and validation.
+- Provided wording suggestions for documentation.
 
 **Challenges**
-- Needed to adjust wording and layout to better match assignment requirements.
-- Required manual review to ensure accessibility and originality.
+- Needed manual adjustments to ensure logic was correct and readable.
+- Required careful review to match assignment requirements and avoid over-complication.
 
 ## 3. Learning Outcomes
-- Reinforced how CSS variables can simplify theming.
-- Improved understanding of responsive layouts with grid/flex combinations.
-- Learned to design small, meaningful JavaScript interactions without a backend.
+- Improved understanding of DOM-based filtering and dynamic UI updates.
+- Practiced form validation and user feedback patterns in JavaScript.
+- Learned how to keep CSS transitions subtle and user-friendly.
 
 ## 4. Responsible Use & Modifications
-- Reviewed all generated suggestions line-by-line for correctness.
-- Rewrote content and styling to ensure originality and clarity.
-- Added custom SVG placeholders and adjusted copy to fit the assignment rubric.
-- Verified that the final code follows good structure, readability, and accessibility practices.
+- Reviewed all AI suggestions line-by-line for correctness.
+- Simplified and edited the code to stay clear, original, and maintainable.
+- Added custom project tags and validation rules tailored to the assignment.
+- Verified the final result meets the rubric for interactivity, data handling, and feedback.
