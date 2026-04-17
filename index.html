@@ -3,13 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zainab Almusailem | Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
+    <meta
+      name="description"
+      content="Zainab Almusailem portfolio with live API data, project filtering, stateful preferences, and contact validation."
     />
+    <title>Zainab Almusailem | Assignment 3 Portfolio</title>
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
@@ -18,6 +16,7 @@
         <a class="logo" href="#top">Zainab Almusailem</a>
         <nav class="main-nav">
           <a href="#about">About</a>
+          <a href="#live-data">Live Data</a>
           <a href="#projects">Projects</a>
           <a href="#skills">Skills</a>
           <a href="#contact">Contact</a>
@@ -30,24 +29,28 @@
 
     <main id="top">
       <section class="hero section container" style="--delay: 0.05s">
+        <img
+          class="hero-bg"
+          src="assets/images/profile-placeholder.svg"
+          alt=""
+          aria-hidden="true"
+          width="640"
+          height="420"
+        />
         <div class="hero-text">
-          <p class="eyebrow">Personal Portfolio</p>
+          <p class="eyebrow">Assignment 3 Portfolio</p>
           <h1>Hi, I’m Zainab Almusailem.</h1>
-          <p class="tagline">Software engineer.</p>
+          <p class="tagline">Software engineering student building practical web applications.</p>
           <p class="intro" id="greeting">Welcome!</p>
           <div class="hero-actions">
             <a class="btn" href="#projects">View projects</a>
-            <a class="btn ghost" href="#contact">Get in touch</a>
+            <a class="btn secondary" href="#live-data">See live data</a>
           </div>
-        </div>
-        <div class="hero-card">
-          <img
-            src="assets/images/profile-placeholder.svg"
-            alt="Illustrated profile placeholder"
-          />
-          <div>
-            <p class="card-title">Front-End Focus</p>
-            <p class="card-subtitle">HTML, CSS, JavaScript, Responsive UI</p>
+          <div class="quick-stats" aria-label="Portfolio highlights">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>API Integration</span>
           </div>
         </div>
       </section>
@@ -59,9 +62,71 @@
             I’m a senior software engineering student with experience in software
             engineering. I enjoy turning ideas into clear, usable interfaces and
             learning new tools through hands-on practice. Right now, I’m focused on
-            responsive layouts and accessible design.
+            responsive layouts, accessible design, and JavaScript features that make
+            pages react to real user choices.
           </p>
           <p class="about-tagline">Tagline: Thoughtful design. Reliable code.</p>
+        </div>
+      </section>
+
+      <section id="live-data" class="section" style="--delay: 0.2s">
+        <div class="container">
+          <div class="section-title">
+            <h2>Live Data & Visitor Tools</h2>
+            <p>Personalized details, a visit timer, and current weather from a public API.</p>
+          </div>
+          <div class="feature-grid">
+            <article class="info-card">
+              <h3>Visitor Name</h3>
+              <p id="visitor-message">Add your name to personalize this portfolio.</p>
+              <form id="visitor-form" class="inline-form">
+                <label class="sr-only" for="visitor-name">Visitor name</label>
+                <input
+                  id="visitor-name"
+                  name="visitor-name"
+                  type="text"
+                  placeholder="Enter your name"
+                  autocomplete="name"
+                />
+                <button class="btn compact" type="submit">Save</button>
+                <button class="btn compact secondary" id="clear-name" type="button">
+                  Clear
+                </button>
+              </form>
+            </article>
+
+            <article class="info-card">
+              <h3>Visit Timer</h3>
+              <p>You have been exploring for <strong id="visit-timer">0s</strong>.</p>
+              <p class="small-note">This counter updates every second while the page is open.</p>
+            </article>
+
+            <article class="info-card api-card">
+              <div class="card-header-row">
+                <h3>Dhahran Weather</h3>
+                <button class="text-button" id="refresh-weather" type="button">
+                  Refresh
+                </button>
+              </div>
+              <p id="weather-status" class="api-status" aria-live="polite">
+                Loading current weather...
+              </p>
+              <dl class="weather-grid" id="weather-data" hidden>
+                <div>
+                  <dt>Temperature</dt>
+                  <dd id="weather-temp">--</dd>
+                </div>
+                <div>
+                  <dt>Humidity</dt>
+                  <dd id="weather-humidity">--</dd>
+                </div>
+                <div>
+                  <dt>Wind</dt>
+                  <dd id="weather-wind">--</dd>
+                </div>
+              </dl>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -69,7 +134,7 @@
         <div class="container">
           <div class="section-title">
             <h2>Projects</h2>
-            <p>Two recent builds that show my approach to clean UI and structure.</p>
+            <p>Filter by type and difficulty, then sort by date or title.</p>
           </div>
           <div class="project-controls">
             <div class="filter-group" role="group" aria-label="Filter projects">
@@ -83,6 +148,22 @@
                 UI Concepts
               </button>
             </div>
+            <div class="control-field">
+              <label for="level-filter">Level</label>
+              <select id="level-filter">
+                <option value="all">All levels</option>
+                <option value="beginner">Beginner</option>
+                <option value="advanced">Advanced</option>
+              </select>
+            </div>
+            <div class="control-field">
+              <label for="project-sort">Sort</label>
+              <select id="project-sort">
+                <option value="date-desc">Newest first</option>
+                <option value="date-asc">Oldest first</option>
+                <option value="title-asc">Title A-Z</option>
+              </select>
+            </div>
             <div class="search-group">
               <label class="sr-only" for="project-search">Search projects</label>
               <input
@@ -94,18 +175,23 @@
             </div>
           </div>
           <p id="project-status" class="project-status" aria-live="polite"></p>
-          <div class="projects-grid">
+          <div class="projects-grid" id="projects-grid">
             <article
               class="card project-card"
               data-category="web"
+              data-level="advanced"
               data-title="Campus Service Tracker"
+              data-date="2026-03-12"
               data-tags="web app tracker campus maintenance student support"
             >
               <img
                 src="assets/images/project-1.svg"
                 alt="Project one placeholder preview"
+                width="620"
+                height="360"
               />
               <div class="card-body">
+                <p class="project-meta">Advanced · March 2026</p>
                 <h3>Campus Service Tracker</h3>
                 <p>
                   A concept web app that helps students report facility issues and
@@ -116,14 +202,19 @@
             <article
               class="card project-card"
               data-category="ui"
+              data-level="beginner"
               data-title="Smart Study Planner"
+              data-date="2026-01-24"
               data-tags="ui concept dashboard planner productivity"
             >
               <img
                 src="assets/images/project-2.svg"
                 alt="Project two placeholder preview"
+                width="620"
+                height="360"
               />
               <div class="card-body">
+                <p class="project-meta">Beginner · January 2026</p>
                 <h3>Smart Study Planner</h3>
                 <p>
                   A productivity dashboard mockup that organizes weekly goals,
@@ -144,8 +235,10 @@
           <div class="chip-row">
             <span class="chip">HTML5</span>
             <span class="chip">CSS Grid & Flexbox</span>
-            <span class="chip">JavaScript Basics</span>
+            <span class="chip">JavaScript DOM Logic</span>
             <span class="chip">Responsive Design</span>
+            <span class="chip">External APIs</span>
+            <span class="chip">Local Storage</span>
             <span class="chip">Git & GitHub</span>
           </div>
         </div>
@@ -157,7 +250,8 @@
             <h2>Contact</h2>
             <p>
               Want to collaborate or share feedback? Send a quick message and I’ll
-              reply as soon as possible.
+              review it carefully. The form checks the name, email, message length,
+              and message topic before accepting the submission.
             </p>
             <ul class="contact-list">
               <li>Email: s202251360@kfupm.edu.sa</li>
@@ -198,6 +292,15 @@
             ></textarea>
             <span id="message-error" class="field-error" aria-live="polite"></span>
 
+            <label for="topic">Topic</label>
+            <select id="topic" name="topic" aria-describedby="topic-error" required>
+              <option value="">Choose a topic</option>
+              <option value="project">Project question</option>
+              <option value="feedback">Portfolio feedback</option>
+              <option value="collaboration">Collaboration</option>
+            </select>
+            <span id="topic-error" class="field-error" aria-live="polite"></span>
+
             <button class="btn" type="submit">Send message</button>
             <p id="form-status" class="form-status" aria-live="polite"></p>
           </form>
@@ -207,7 +310,7 @@
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p>© 2026 Zainab Almusailem. Built for Assignment 1.</p>
+        <p>© 2026 Zainab Almusailem. Built for Assignment 3.</p>
         <div class="footer-links">
           <a href="#top">Back to top</a>
         </div>
