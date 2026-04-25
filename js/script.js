@@ -1,4 +1,3 @@
-// Assignment 3 interactions: API data, state management, filtering/sorting, and validation.
 const storageKeys = {
   theme: 'portfolio-theme',
   visitorName: 'portfolio-visitor-name',
@@ -19,6 +18,9 @@ const weatherHumidity = document.querySelector('#weather-humidity');
 const weatherWind = document.querySelector('#weather-wind');
 const refreshWeatherButton = document.querySelector('#refresh-weather');
 
+const availabilityStatus = document.querySelector('#availability-status');
+const availabilityNote = document.querySelector('#availability-note');
+
 const projectsGrid = document.querySelector('#projects-grid');
 const projectCards = Array.from(document.querySelectorAll('.project-card'));
 const filterButtons = Array.from(document.querySelectorAll('.filter-btn'));
@@ -26,6 +28,7 @@ const levelFilter = document.querySelector('#level-filter');
 const sortSelect = document.querySelector('#project-sort');
 const searchInput = document.querySelector('#project-search');
 const projectStatus = document.querySelector('#project-status');
+const projectSummary = document.querySelector('#project-summary');
 
 const form = document.querySelector('#contact-form');
 const formStatus = document.querySelector('#form-status');
@@ -37,6 +40,10 @@ const nameError = document.querySelector('#name-error');
 const emailError = document.querySelector('#email-error');
 const messageError = document.querySelector('#message-error');
 const topicError = document.querySelector('#topic-error');
+
+const currentYearEl = document.querySelector('#current-year');
+const copyEmailButton = document.querySelector('#copy-email');
+const contactEmail = document.querySelector('#contact-email');
 
 const getStoredValue = (key) => localStorage.getItem(key);
 const setStoredValue = (key, value) => localStorage.setItem(key, value);
@@ -63,7 +70,7 @@ const updateGreeting = () => {
 
   const visitorName = getStoredValue(storageKeys.visitorName);
   const nameText = visitorName ? `, ${visitorName}` : '';
-  greetingEl.textContent = `${getTimeGreeting()}${nameText}! Thanks for stopping by.`;
+  greetingEl.textContent = `${getTimeGreeting()}${nameText}. Thanks for visiting this final portfolio.`;
 };
 
 const updateVisitorState = () => {
@@ -75,7 +82,7 @@ const updateVisitorState = () => {
 
   if (visitorMessage) {
     visitorMessage.textContent = visitorName
-      ? `Welcome back, ${visitorName}. Your name was saved in this browser.`
+      ? `Welcome back, ${visitorName}. Your name is stored locally in this browser.`
       : 'Add your name to personalize this portfolio.';
   }
 
@@ -87,7 +94,7 @@ const applyTheme = (theme) => {
 
   if (themeToggle) {
     themeToggle.textContent = theme === 'dark' ? 'Light mode' : 'Dark mode';
-    themeToggle.setAttribute('aria-pressed', theme === 'dark');
+    themeToggle.setAttribute('aria-pressed', String(theme === 'dark'));
   }
 };
 
@@ -98,8 +105,39 @@ const initializeTheme = () => {
   applyTheme(startingTheme);
 };
 
+const updateAvailability = () => {
+  if (!availabilityStatus || !availabilityNote) {
+    return;
+  }
+
+  const hours = new Date().getHours();
+
+  if (hours >= 8 && hours < 17) {
+    availabilityStatus.textContent = 'Likely in study mode';
+    availabilityNote.textContent =
+      'This demo status estimates daytime availability for coursework and project work.';
+    return;
+  }
+
+  if (hours >= 17 && hours < 22) {
+    availabilityStatus.textContent = 'Likely reviewing projects';
+    availabilityNote.textContent =
+      'Evening hours are a good time for portfolio refinement, testing, and practice.';
+    return;
+  }
+
+  availabilityStatus.textContent = 'Likely offline right now';
+  availabilityNote.textContent =
+    'Late hours are reserved for rest. The status updates automatically based on local time.';
+};
+
 initializeTheme();
 updateVisitorState();
+updateAvailability();
+
+if (currentYearEl) {
+  currentYearEl.textContent = String(new Date().getFullYear());
+}
 
 if (themeToggle) {
   themeToggle.addEventListener('click', () => {
@@ -135,15 +173,27 @@ if (clearNameButton) {
 }
 
 let secondsOnPage = 0;
+
 const updateVisitTimer = () => {
   if (!visitTimer) {
     return;
   }
 
-  const minutes = Math.floor(secondsOnPage / 60);
+  const hours = Math.floor(secondsOnPage / 3600);
+  const minutes = Math.floor((secondsOnPage % 3600) / 60);
   const seconds = secondsOnPage % 60;
-  visitTimer.textContent =
-    minutes > 0 ? `${minutes}m ${seconds}s` : `${seconds}s`;
+
+  if (hours > 0) {
+    visitTimer.textContent = `${hours}h ${minutes}m ${seconds}s`;
+    return;
+  }
+
+  if (minutes > 0) {
+    visitTimer.textContent = `${minutes}m ${seconds}s`;
+    return;
+  }
+
+  visitTimer.textContent = `${seconds}s`;
 };
 
 updateVisitTimer();
@@ -200,9 +250,18 @@ const fetchWeather = async () => {
       throw new Error('Weather API response is missing current conditions.');
     }
 
-    weatherTemp.textContent = `${Math.round(current.temperature_2m)}${units.temperature_2m}`;
-    weatherHumidity.textContent = `${current.relative_humidity_2m}${units.relative_humidity_2m}`;
-    weatherWind.textContent = `${Math.round(current.wind_speed_10m)} ${units.wind_speed_10m}`;
+    if (weatherTemp) {
+      weatherTemp.textContent = `${Math.round(current.temperature_2m)}${units.temperature_2m}`;
+    }
+
+    if (weatherHumidity) {
+      weatherHumidity.textContent = `${current.relative_humidity_2m}${units.relative_humidity_2m}`;
+    }
+
+    if (weatherWind) {
+      weatherWind.textContent = `${Math.round(current.wind_speed_10m)} ${units.wind_speed_10m}`;
+    }
+
     weatherData.hidden = false;
     weatherStatus.textContent = `Updated for Dhahran at ${current.time.replace('T', ' ')}.`;
   } catch (error) {
@@ -221,9 +280,9 @@ fetchWeather();
 let activeFilter = 'all';
 
 const levelMessages = {
-  all: 'All difficulty levels are included.',
-  beginner: 'Beginner projects focus on clear layouts and simple workflows.',
-  advanced: 'Advanced projects combine multiple screens, states, or business rules.',
+  all: 'All project levels are included.',
+  beginner: 'Beginner projects emphasize clarity, layout, and approachable flows.',
+  advanced: 'Advanced projects combine multiple states, screens, or user journeys.',
 };
 
 const getSortedProjects = () => {
@@ -257,6 +316,29 @@ const updateProjectStatus = (visibleCount, totalCount, levelValue) => {
   }`;
 };
 
+const updateProjectSummary = (visibleProjects) => {
+  if (!projectSummary) {
+    return;
+  }
+
+  if (visibleProjects.length === 0) {
+    projectSummary.textContent =
+      'No matching projects are visible right now. Reset the controls to return to the full gallery.';
+    return;
+  }
+
+  const firstProject = visibleProjects[0].dataset.title || 'the selected project';
+  const visibleCount = visibleProjects.length;
+  const categoryLabel =
+    activeFilter === 'all'
+      ? 'across UI concepts and web app ideas'
+      : activeFilter === 'web'
+        ? 'focused on web application workflows'
+        : 'focused on interface concept work';
+
+  projectSummary.textContent = `${visibleCount} project${visibleCount === 1 ? '' : 's'} visible, ${categoryLabel}. The first card currently in view is ${firstProject}.`;
+};
+
 const filterAndSortProjects = () => {
   if (!projectsGrid) {
     return;
@@ -264,7 +346,7 @@ const filterAndSortProjects = () => {
 
   const searchTerm = searchInput ? searchInput.value.trim().toLowerCase() : '';
   const levelValue = levelFilter ? levelFilter.value : 'all';
-  let visibleCount = 0;
+  const visibleProjects = [];
 
   getSortedProjects().forEach((card) => {
     projectsGrid.appendChild(card);
@@ -281,11 +363,12 @@ const filterAndSortProjects = () => {
     card.classList.toggle('is-hidden', !isVisible);
 
     if (isVisible) {
-      visibleCount += 1;
+      visibleProjects.push(card);
     }
   });
 
-  updateProjectStatus(visibleCount, projectCards.length, levelValue);
+  updateProjectStatus(visibleProjects.length, projectCards.length, levelValue);
+  updateProjectSummary(visibleProjects);
 };
 
 filterButtons.forEach((button) => {
@@ -320,6 +403,13 @@ const clearFieldError = (errorEl) => {
   if (errorEl) {
     errorEl.textContent = '';
   }
+};
+
+const clearAllFieldErrors = () => {
+  clearFieldError(nameError);
+  clearFieldError(emailError);
+  clearFieldError(messageError);
+  clearFieldError(topicError);
 };
 
 const validateForm = () => {
@@ -375,15 +465,15 @@ const attachLiveValidation = (inputEl, errorEl, validator) => {
 };
 
 attachLiveValidation(nameInput, nameError, () =>
-  nameInput ? nameInput.value.trim().length >= 2 : true
+  (nameInput ? nameInput.value.trim().length >= 2 : true)
 );
 attachLiveValidation(emailInput, emailError, () =>
-  emailInput ? emailInput.validity.valid : true
+  (emailInput ? emailInput.validity.valid : true)
 );
 attachLiveValidation(messageInput, messageError, () =>
-  messageInput
+  (messageInput
     ? messageInput.value.trim().length >= 10 && /[a-z]/i.test(messageInput.value)
-    : true
+    : true)
 );
 
 if (topicInput) {
@@ -407,13 +497,34 @@ if (form) {
       return;
     }
 
-    if (formStatus) {
+    if (formStatus && topicInput) {
       const topicLabel = topicInput.options[topicInput.selectedIndex].text;
-      formStatus.textContent = `Thanks! Your ${topicLabel.toLowerCase()} message passed validation.`;
+      formStatus.textContent = `Thanks. Your ${topicLabel.toLowerCase()} message passed validation successfully.`;
       formStatus.classList.add('success');
       formStatus.classList.remove('error');
     }
 
     form.reset();
+    clearAllFieldErrors();
+  });
+}
+
+if (copyEmailButton && contactEmail && navigator.clipboard) {
+  copyEmailButton.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(contactEmail.textContent || '');
+
+      if (formStatus) {
+        formStatus.textContent = 'Contact email copied to the clipboard.';
+        formStatus.classList.add('success');
+        formStatus.classList.remove('error');
+      }
+    } catch (error) {
+      if (formStatus) {
+        formStatus.textContent = 'Unable to copy the email right now.';
+        formStatus.classList.add('error');
+        formStatus.classList.remove('success');
+      }
+    }
   });
 }
