@@ -5,75 +5,175 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Zainab Almusailem portfolio with live API data, project filtering, stateful preferences, and contact validation."
+      content="Zainab Almusailem's final portfolio project featuring responsive design, interactive filtering, local storage, API integration, and professional documentation."
     />
-    <title>Zainab Almusailem | Assignment 3 Portfolio</title>
+    <title>Zainab Almusailem | Final Portfolio</title>
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="logo" href="#top">Zainab Almusailem</a>
-        <nav class="main-nav">
+        <a class="logo" href="#top">ZA</a>
+        <nav class="main-nav" aria-label="Primary">
           <a href="#about">About</a>
-          <a href="#live-data">Live Data</a>
+          <a href="#live-data">Dashboard</a>
           <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
+          <a href="#workflow">Workflow</a>
           <a href="#contact">Contact</a>
         </nav>
-        <button class="theme-toggle" id="theme-toggle" type="button">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false">
           Dark mode
         </button>
       </div>
     </header>
 
     <main id="top">
-      <section class="hero section container" style="--delay: 0.05s">
-        <img
-          class="hero-bg"
-          src="assets/images/profile-placeholder.svg"
-          alt=""
-          aria-hidden="true"
-          width="640"
-          height="420"
-        />
-        <div class="hero-text">
-          <p class="eyebrow">Assignment 3 Portfolio</p>
-          <h1>Hi, I’m Zainab Almusailem.</h1>
-          <p class="tagline">Software engineering student building practical web applications.</p>
-          <p class="intro" id="greeting">Welcome!</p>
-          <div class="hero-actions">
-            <a class="btn" href="#projects">View projects</a>
-            <a class="btn secondary" href="#live-data">See live data</a>
+      <section class="hero section">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Software Engineering Portfolio</p>
+            <h1>Designing thoughtful web experiences with practical front-end logic.</h1>
+            <p class="tagline">
+              I am Zainab Almusailem, a software engineering student building clean,
+              responsive interfaces that balance usability, structure, and personality.
+            </p>
+            <p class="intro" id="greeting">Welcome!</p>
+            <div class="hero-actions">
+              <a class="btn" href="#projects">Explore Projects</a>
+              <a class="btn secondary" href="#contact">Start a Conversation</a>
+            </div>
+            <ul class="hero-metrics" aria-label="Portfolio metrics">
+              <li>
+                <strong>4</strong>
+                <span>Featured concepts</span>
+              </li>
+              <li>
+                <strong>1</strong>
+                <span>Live public API</span>
+              </li>
+              <li>
+                <strong>100%</strong>
+                <span>Responsive layout</span>
+              </li>
+            </ul>
           </div>
-          <div class="quick-stats" aria-label="Portfolio highlights">
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>JavaScript</span>
-            <span>API Integration</span>
+
+          <div class="hero-panel">
+            <img
+              class="hero-portrait"
+              src="assets/images/profile-placeholder.svg"
+              alt="Illustrated portrait placeholder for Zainab Almusailem"
+              width="360"
+              height="360"
+            />
+            <div class="panel-card">
+              <p class="panel-label">Current Focus</p>
+              <h2>Turning course concepts into a polished final product.</h2>
+              <p>
+                This final portfolio combines semantic HTML, responsive CSS,
+                JavaScript interactivity, API usage, and user-friendly validation in a
+                single presentation-ready site.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="about" class="section" style="--delay: 0.15s">
-        <div class="container">
-          <h2>About Me</h2>
-          <p>
-            I’m a senior software engineering student with experience in software
-            engineering. I enjoy turning ideas into clear, usable interfaces and
-            learning new tools through hands-on practice. Right now, I’m focused on
-            responsive layouts, accessible design, and JavaScript features that make
-            pages react to real user choices.
-          </p>
-          <p class="about-tagline">Tagline: Thoughtful design. Reliable code.</p>
+      <section id="about" class="section">
+        <div class="container split-layout">
+          <div class="section-copy">
+            <p class="eyebrow">About Me</p>
+            <h2>A final portfolio built to feel complete, not just submitted.</h2>
+            <p>
+              I enjoy translating requirements into interfaces that are easy to read,
+              responsive on different screen sizes, and structured with maintainable
+              code. My focus in this project was to build a site that presents both my
+              technical growth and my design judgment.
+            </p>
+            <p>
+              Instead of treating this as a simple checklist, I used the final
+              assignment to shape a portfolio I can continue improving after the
+              course.
+            </p>
+          </div>
+
+          <div class="feature-stack">
+            <article class="detail-card">
+              <p class="card-kicker">Strength</p>
+              <h3>Front-End Craft</h3>
+              <p>
+                Clean layout systems, consistent spacing, accessible forms, and
+                polished interaction feedback.
+              </p>
+            </article>
+            <article class="detail-card">
+              <p class="card-kicker">Approach</p>
+              <h3>Practical Problem Solving</h3>
+              <p>
+                I prefer solutions that are readable, dependable, and realistic to
+                maintain over time.
+              </p>
+            </article>
+            <article class="detail-card">
+              <p class="card-kicker">Signature</p>
+              <h3>Thoughtful Design. Reliable Code.</h3>
+              <p>
+                My goal is to make even small interactions feel intentional instead of
+                accidental.
+              </p>
+            </article>
+          </div>
         </div>
       </section>
 
-      <section id="live-data" class="section" style="--delay: 0.2s">
+      <section class="section">
         <div class="container">
           <div class="section-title">
-            <h2>Live Data & Visitor Tools</h2>
-            <p>Personalized details, a visit timer, and current weather from a public API.</p>
+            <p class="eyebrow">Portfolio Highlights</p>
+            <h2>What makes this final version stronger</h2>
+          </div>
+          <div class="highlights-grid">
+            <article class="info-card">
+              <h3>Responsive by Default</h3>
+              <p>
+                Each section adapts to mobile, tablet, and desktop layouts without
+                losing clarity or hierarchy.
+              </p>
+            </article>
+            <article class="info-card">
+              <h3>Stateful Interactions</h3>
+              <p>
+                Theme preference and visitor name are saved locally so the experience
+                feels personal on repeat visits.
+              </p>
+            </article>
+            <article class="info-card">
+              <h3>Useful Error Handling</h3>
+              <p>
+                The portfolio shows clear fallback messages when API requests fail or
+                form data is incomplete.
+              </p>
+            </article>
+            <article class="info-card">
+              <h3>Creative Touches</h3>
+              <p>
+                Dynamic greeting, live weather, filterable project gallery, and a
+                polished visual system add personality without clutter.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="live-data" class="section">
+        <div class="container">
+          <div class="section-title">
+            <p class="eyebrow">Interactive Dashboard</p>
+            <h2>Live data and visitor-focused features</h2>
+            <p>
+              These small tools show how the interface responds to real input, stored
+              state, time, and external data.
+            </p>
           </div>
           <div class="feature-grid">
             <article class="info-card">
@@ -98,10 +198,12 @@
             <article class="info-card">
               <h3>Visit Timer</h3>
               <p>You have been exploring for <strong id="visit-timer">0s</strong>.</p>
-              <p class="small-note">This counter updates every second while the page is open.</p>
+              <p class="small-note">
+                A simple but useful stateful interaction that updates every second.
+              </p>
             </article>
 
-            <article class="info-card api-card">
+            <article class="info-card">
               <div class="card-header-row">
                 <h3>Dhahran Weather</h3>
                 <button class="text-button" id="refresh-weather" type="button">
@@ -126,16 +228,43 @@
                 </div>
               </dl>
             </article>
+
+            <article class="info-card">
+              <h3>Availability Snapshot</h3>
+              <p class="availability-pill" id="availability-status">Checking schedule...</p>
+              <p id="availability-note" class="small-note">
+                Availability is estimated from the current time for demonstration.
+              </p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section id="projects" class="section" style="--delay: 0.25s">
+      <section id="projects" class="section">
         <div class="container">
           <div class="section-title">
-            <h2>Projects</h2>
-            <p>Filter by type and difficulty, then sort by date or title.</p>
+            <p class="eyebrow">Selected Work</p>
+            <h2>Filterable project showcase</h2>
+            <p>
+              Browse project concepts by category, level, search term, or sort order.
+            </p>
           </div>
+
+          <div class="project-overview">
+            <div>
+              <p class="summary-label">Project gallery summary</p>
+              <p id="project-summary" class="project-summary">
+                Use the controls below to explore projects by focus and complexity.
+              </p>
+            </div>
+            <div class="summary-chip-row" aria-label="Project keywords">
+              <span>UI Strategy</span>
+              <span>Responsive Layout</span>
+              <span>Student Tools</span>
+              <span>Service Design</span>
+            </div>
+          </div>
+
           <div class="project-controls">
             <div class="filter-group" role="group" aria-label="Filter projects">
               <button class="filter-btn active" type="button" data-filter="all">
@@ -174,7 +303,9 @@
               />
             </div>
           </div>
+
           <p id="project-status" class="project-status" aria-live="polite"></p>
+
           <div class="projects-grid" id="projects-grid">
             <article
               class="card project-card"
@@ -182,43 +313,92 @@
               data-level="advanced"
               data-title="Campus Service Tracker"
               data-date="2026-03-12"
-              data-tags="web app tracker campus maintenance student support"
+              data-tags="web app tracker campus maintenance student support dashboard"
             >
               <img
                 src="assets/images/project-1.svg"
-                alt="Project one placeholder preview"
+                alt="Preview illustration for Campus Service Tracker"
                 width="620"
                 height="360"
               />
               <div class="card-body">
-                <p class="project-meta">Advanced · March 2026</p>
+                <p class="project-meta">Advanced - March 2026</p>
                 <h3>Campus Service Tracker</h3>
                 <p>
-                  A concept web app that helps students report facility issues and
-                  track update status with a clean, mobile-friendly layout.
+                  A service reporting concept that helps students submit campus issues,
+                  follow updates, and understand request status at a glance.
                 </p>
               </div>
             </article>
+
             <article
               class="card project-card"
               data-category="ui"
               data-level="beginner"
               data-title="Smart Study Planner"
               data-date="2026-01-24"
-              data-tags="ui concept dashboard planner productivity"
+              data-tags="ui concept dashboard planner productivity time blocks"
             >
               <img
                 src="assets/images/project-2.svg"
-                alt="Project two placeholder preview"
+                alt="Preview illustration for Smart Study Planner"
                 width="620"
                 height="360"
               />
               <div class="card-body">
-                <p class="project-meta">Beginner · January 2026</p>
+                <p class="project-meta">Beginner - January 2026</p>
                 <h3>Smart Study Planner</h3>
                 <p>
-                  A productivity dashboard mockup that organizes weekly goals,
-                  priorities, and deadlines in a simple visual flow.
+                  A lightweight planning dashboard focused on weekly priorities,
+                  deadlines, and a calm academic workflow.
+                </p>
+              </div>
+            </article>
+
+            <article
+              class="card project-card"
+              data-category="web"
+              data-level="advanced"
+              data-title="Volunteer Match Hub"
+              data-date="2026-04-06"
+              data-tags="web app matching nonprofit events registration profile"
+            >
+              <img
+                src="assets/images/project-3.svg"
+                alt="Preview illustration for Volunteer Match Hub"
+                width="620"
+                height="360"
+              />
+              <div class="card-body">
+                <p class="project-meta">Advanced - April 2026</p>
+                <h3>Volunteer Match Hub</h3>
+                <p>
+                  A concept platform that connects students with community events
+                  through interest-based recommendations and simple sign-up flows.
+                </p>
+              </div>
+            </article>
+
+            <article
+              class="card project-card"
+              data-category="ui"
+              data-level="beginner"
+              data-title="Mentor Circle Dashboard"
+              data-date="2025-11-08"
+              data-tags="ui concept mentorship analytics scheduling goals"
+            >
+              <img
+                src="assets/images/project-4.svg"
+                alt="Preview illustration for Mentor Circle Dashboard"
+                width="620"
+                height="360"
+              />
+              <div class="card-body">
+                <p class="project-meta">Beginner - November 2025</p>
+                <h3>Mentor Circle Dashboard</h3>
+                <p>
+                  A dashboard concept for mentoring sessions, action items, and
+                  progress visibility between students and mentors.
                 </p>
               </div>
             </article>
@@ -226,39 +406,90 @@
         </div>
       </section>
 
-      <section id="skills" class="section" style="--delay: 0.35s">
+      <section id="workflow" class="section">
         <div class="container">
           <div class="section-title">
-            <h2>Skills & Tools</h2>
-            <p>Core technologies I’m practicing right now.</p>
+            <p class="eyebrow">Workflow</p>
+            <h2>How this portfolio was built</h2>
+            <p>
+              The site is organized around readable structure, reusable styling, and
+              focused client-side logic.
+            </p>
           </div>
-          <div class="chip-row">
-            <span class="chip">HTML5</span>
-            <span class="chip">CSS Grid & Flexbox</span>
-            <span class="chip">JavaScript DOM Logic</span>
-            <span class="chip">Responsive Design</span>
-            <span class="chip">External APIs</span>
-            <span class="chip">Local Storage</span>
-            <span class="chip">Git & GitHub</span>
+
+          <div class="workflow-grid">
+            <article class="detail-card">
+              <p class="card-kicker">01</p>
+              <h3>Semantic Structure</h3>
+              <p>
+                Sections, headings, forms, and navigation are organized for clarity
+                and accessibility from the start.
+              </p>
+            </article>
+            <article class="detail-card">
+              <p class="card-kicker">02</p>
+              <h3>Design System</h3>
+              <p>
+                Color variables, spacing rules, card styles, and responsive grids make
+                the interface consistent and easy to extend.
+              </p>
+            </article>
+            <article class="detail-card">
+              <p class="card-kicker">03</p>
+              <h3>JavaScript Enhancements</h3>
+              <p>
+                Local storage, API fetch logic, filters, live validation, and helpful
+                feedback messages create a more complete user experience.
+              </p>
+            </article>
+          </div>
+
+          <div class="skills-panel">
+            <div>
+              <p class="summary-label">Core skills</p>
+              <div class="chip-row">
+                <span class="chip">HTML5</span>
+                <span class="chip">CSS Grid</span>
+                <span class="chip">Flexbox</span>
+                <span class="chip">JavaScript DOM</span>
+                <span class="chip">Fetch API</span>
+                <span class="chip">Local Storage</span>
+                <span class="chip">Responsive Design</span>
+                <span class="chip">Git &amp; GitHub</span>
+              </div>
+            </div>
+            <div>
+              <p class="summary-label">Quality goals</p>
+              <ul class="quality-list">
+                <li>Clear status and error messaging</li>
+                <li>Consistent naming and formatting</li>
+                <li>Reduced visual clutter and unused code</li>
+                <li>Presentation-ready documentation</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="contact" class="section" style="--delay: 0.45s">
+      <section id="contact" class="section">
         <div class="container contact-grid">
-          <div>
-            <h2>Contact</h2>
+          <div class="contact-copy">
+            <p class="eyebrow">Contact</p>
+            <h2>Let's connect</h2>
             <p>
-              Want to collaborate or share feedback? Send a quick message and I’ll
-              review it carefully. The form checks the name, email, message length,
-              and message topic before accepting the submission.
+              This form demonstrates validation, feedback states, and accessible error
+              messaging. It can also serve as the starting point for a future
+              backend-connected contact workflow.
             </p>
             <ul class="contact-list">
-              <li>Email: s202251360@kfupm.edu.sa</li>
-              <li>Location: KSA, Dhahran</li>
+              <li>Email: <span id="contact-email">s202251360@kfupm.edu.sa</span></li>
+              <li>Location: Dhahran, Saudi Arabia</li>
+              <li>Status: Open to feedback on portfolio and interface ideas</li>
             </ul>
+            <button class="text-button" id="copy-email" type="button">Copy email</button>
           </div>
-          <form id="contact-form" class="contact-form">
+
+          <form id="contact-form" class="contact-form" novalidate>
             <label for="name">Name</label>
             <input
               id="name"
@@ -310,8 +541,14 @@
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p>© 2026 Zainab Almusailem. Built for Assignment 3.</p>
+        <div>
+          <p>&copy; <span id="current-year">2026</span> Zainab Almusailem.</p>
+          <p class="footer-note">Built as a final personal portfolio web application.</p>
+        </div>
         <div class="footer-links">
+          <a href="README.md">README</a>
+          <a href="docs/technical-documentation.md">Technical Docs</a>
+          <a href="docs/ai-usage-report.md">AI Report</a>
           <a href="#top">Back to top</a>
         </div>
       </div>
