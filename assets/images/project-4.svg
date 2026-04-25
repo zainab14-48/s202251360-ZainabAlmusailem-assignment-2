@@ -1,0 +1,20 @@
+<svg width="640" height="420" viewBox="0 0 640 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg4" x1="28" y1="38" x2="614" y2="388" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E8E0F7" />
+      <stop offset="1" stop-color="#C8BDE7" />
+    </linearGradient>
+  </defs>
+  <rect width="640" height="420" rx="24" fill="url(#bg4)" />
+  <rect x="60" y="60" width="520" height="82" rx="18" fill="#FBF9FF" />
+  <rect x="60" y="176" width="156" height="170" rx="18" fill="#FBF9FF" />
+  <rect x="242" y="176" width="156" height="170" rx="18" fill="#FBF9FF" />
+  <rect x="424" y="176" width="156" height="170" rx="18" fill="#FBF9FF" />
+  <rect x="92" y="92" width="212" height="18" rx="9" fill="#D6CCF1" />
+  <rect x="92" y="206" width="92" height="18" rx="9" fill="#D6CCF1" />
+  <rect x="274" y="206" width="92" height="18" rx="9" fill="#D6CCF1" />
+  <rect x="456" y="206" width="92" height="18" rx="9" fill="#D6CCF1" />
+  <rect x="92" y="250" width="92" height="64" rx="18" fill="#6E5AA8" />
+  <rect x="274" y="250" width="92" height="40" rx="18" fill="#6E5AA8" />
+  <rect x="456" y="250" width="92" height="92" rx="18" fill="#6E5AA8" />
+</svg>
