@@ -1,20 +1,34 @@
 # AI Usage Report
 
-## 1. Tools Used & Use Cases
-- ChatGPT / Codex was used as an AI programming assistant while developing the Assignment 3 portfolio.
-- AI helped identify suitable features for the assignment requirements, including API integration, state management, project sorting, and contact form validation.
- 
+## 1. Tools Used
+- OpenAI Codex environment for planning, revision, refactoring, and documentation support
 
-## 2. How AI Helped
-AI support was useful for turning the assignment instructions into a practical implementation checklist. It helped compare possible API ideas and choose a simple free service that does not require an API key. It also helped design validation rules and project filtering logic that combine multiple conditions instead of using only one simple button action.
+## 2. How AI Was Used
+AI assistance was used to:
 
-## 3. Difficulties & Limitations
-- AI suggestions still needed manual review because generated code can include assumptions that do not match the actual files.
-- API examples needed adjustment to include error handling and a timeout. 
-## 4. Learning Outcomes
-While using AI, I practiced:
-- Fetching external API data with `fetch()`.
-- Handling failed or slow API requests without breaking the page. 
+- Review the earlier portfolio version and identify gaps for the final submission
+- Propose a stronger site structure with clearer portfolio storytelling
+- Refine CSS organization and responsive layout decisions
+- Improve JavaScript structure for state handling, filtering, and form validation
+- Rewrite the README and technical documentation to match the final project scope
 
-## 5. Responsible Use & Modifications
-I r eviewed the AI-assisted output before keeping it in the project. I modified the code to match my portfolio content, removed unnecessary complexity, checked that the files are organized correctly, and made sure the documentation matches the actual features. The final project is not a direct copy of an AI answer; it was edited, tested, and adapted for the assignment requirements.
+## 3. Benefits
+- Reduced time spent reorganizing the project from an earlier assignment into a more complete final portfolio
+- Helped identify missing deliverables such as final branding, stronger documentation, and repository cleanup
+- Supported clearer error handling and more polished interface behavior
+
+## 4. Limitations and Human Review
+- AI suggestions were reviewed manually before being kept in the project
+- The code and wording were edited to match the actual portfolio content and course requirements
+- Final judgment was still required for design choices, naming, structure, and what should remain simple
+
+## 5. Learning Outcomes
+Through AI-assisted iteration, the project reinforced:
+
+- How to turn assignment requirements into a coherent implementation plan
+- How to keep JavaScript logic readable while supporting multiple UI features
+- How to document a front-end project in a more professional way
+- How to refine visual design instead of stopping at basic functionality
+
+## 6. Responsible Use Statement
+AI was used as a support tool rather than a replacement for understanding. All suggested code and documentation were reviewed, edited, and aligned with the final portfolio goals before inclusion in the repository.
